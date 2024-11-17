@@ -18,6 +18,7 @@ app.use(cors(
     {origin: "https://real-time-chat-app-123.vercel.app",
         methods:["GET","POST","PUT","DELETE"],
         credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization"]
     }
 
 ));
