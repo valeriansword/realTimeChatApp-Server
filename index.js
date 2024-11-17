@@ -15,7 +15,7 @@ dotenv.config()
 const {app,server}=require("./socket/socket.js")
 app.use(express.json());
 app.use(cors(
-    {origin: "https://real-time-chat-app-123.vercel.app",
+    {origin: ["https://real-time-chat-app-123.vercel.app"],
         methods:["GET","POST","PUT","DELETE"],
         credentials: true,
     }
