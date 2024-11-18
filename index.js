@@ -15,7 +15,7 @@ dotenv.config()
 const {app,server}=require("./socket/socket.js")
 app.use(express.json());
 app.use(cors(
-    {origin: "https://real-time-chat-app-delta-eight.vercel.app",
+    {origin: "*",
         methods:["GET","POST","PUT","DELETE"],
         
       
@@ -29,19 +29,9 @@ app.use("/api/user",UserRoute);
 app.use("/api/chat/message",ChatRouter)
 
 //------------------Deployment-----------------
-const __dirname1=path.resolve();
-if(process.env.NODE_ENV==="production"){
-app.use(express.static(path.join(__dirname1,"../frontend/dist")));
-app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname1,"frontend","dist","index.html"));
-
+app.get("/",(req,res)=>{
+    res.send("<h1>hello</h1>");
 })
-}else{
-    app.get("/",(req,res)=>{
-         res.send("<h1>hello from backend</h1>");
-    })
-}
-
 
 //------------------Deployment-----------------
 mongoose.connect(process.env.MONGO_URI).
