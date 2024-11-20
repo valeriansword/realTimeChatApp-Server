@@ -24,12 +24,6 @@ app.use(cors(
     }
 
 ));
-app.options('*', (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'http://localhost:5173');
-    res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.status(200).end(); // Respond with HTTP 200
-});
 
 const PORT=process.env.PORT || 3000;
 
